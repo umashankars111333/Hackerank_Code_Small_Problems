@@ -1,0 +1,25 @@
+const bracket = '[{}]()()[[]]'
+const bracketPairs = {
+  ']': '[',
+  '}': '{',
+  ')': '('
+}
+
+let bracketStack = [];
+
+function bracketChecker(bracket) {
+
+  for (let i = 0; i < bracket.length; i++) {
+    if (bracketPairs[bracket[i]]) {
+      const bracketRemoved = bracketStack.pop();
+      if (bracketPairs[bracket[i]] !== bracketRemoved) {
+        return false
+      }
+    } else {
+      bracketStack.push(bracket[i])
+    }
+  }
+  return bracketStack.length ? false : true;
+}
+
+console.log(bracketChecker(bracket))
