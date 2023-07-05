@@ -1,0 +1,5 @@
+const data = "Uma is is a good boy boy";
+
+let result = new Set(data.split(" "));
+result = Array.from(result).join(" ")
+console.log(result);
