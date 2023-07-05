@@ -1,0 +1,17 @@
+const string = 'abbaeae';
+const palindromeSub = [];
+
+function palindromeSubstring(string) {
+  for (let i = 0; i < string.length; i++) {
+    for (let j = string.length; j >= i+2; j--) { 
+    	// here we can give how may minimum length substring we want
+      const subString = string.slice(i, j);
+      if (subString.split("").reverse().join("") === subString) {
+        palindromeSub.push(subString)
+      }
+    }
+  }
+}
+
+palindromeSubstring(string);
+console.log(palindromeSub)
