@@ -1,0 +1,22 @@
+const data = 'abbas';
+
+// Optimized code O(n/2)
+function palindrome(data) {
+  let left = 0;
+  let right = data.length - 1;
+  console.log(right)
+  while (right > left) {
+    if (data[left] === data[right]) {
+      left++;
+      right--
+    } else {
+      return false
+    }
+  }
+  return true;
+}
+
+console.log(palindrome(data))
+
+/* O(n) */
+console.log(data.split("").reverse().join(""));
