@@ -1,0 +1,14 @@
+const number = [5, 7, 9, 8, 99, 108, 109, 87];
+
+let largest = 0;
+let secondLargest = 0;
+number.forEach((data) => {
+  if (data > largest) {
+    secondLargest = largest;
+    largest = data;
+  } else if (data > secondLargest && data != largest) {
+    secondLargest = data
+  }
+})
+
+console.log(secondLargest);
