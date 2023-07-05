@@ -1,0 +1,17 @@
+const data = ['11ab', '22p4', '5562an', 'a17890'];
+const reg = '[a-zA-Z]';
+const regX = new RegExp(`${reg}`, 'g');
+
+function removeAlphabet(data) {
+  data = data.replace(regX, "")
+  return data;
+}
+
+const numbersList = data.map(removeAlphabet);
+
+const sum = numbersList.reduce((prev, curr) => {
+  prev += 1 * curr
+  return prev
+}, 0)
+
+console.log(sum);
