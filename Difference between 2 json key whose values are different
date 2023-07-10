@@ -1,0 +1,20 @@
+const json1 = {
+  name: 'umas',
+  age: 20,
+  location: 'Banglores',
+  education: 'BE'
+}
+const json2 = {
+  name: 'uma',
+  age: 20,
+  location: 'Banglore',
+  job: 'SE'
+}
+
+const result = []
+for (let data in json1) {
+  if (data in json2 && json1[data] !== json2[data]) {
+    result.push(data)
+  }
+}
+console.log(result)
