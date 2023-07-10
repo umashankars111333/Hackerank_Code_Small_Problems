@@ -1,0 +1,31 @@
+# Given a string seq consisting of the characters 'A' and 'B' only, in one move, you can delete either an "AB"
+# or a "BB" substring. After a move, the remaining parts of the string get concatenated.
+# Find the minimum possible length of the remaining string after performing any number of moves.
+# Note: A substring is a contiguous subsequence of a string.
+# Example
+# seq = "BABBA"
+# Using 0-based indexing, the following moves are optimal.
+# Delete the substring "AB" starting at index 1. "BABBA" → "BBA"
+# Delete the substring "BB" starting at index 0. "BBA" → "A"
+# There are no more moves so the minimum possible length of the remaining string is 1.
+# ----------------------------------------------------------------------------------------------
+# Always use stack to check any one particular pattern like this, "AA", BB etc..
+
+
+const string = "AABBBAB";
+
+function getMinString(string) {
+  const stack_string = [];
+  for (let data of string) {
+    if (data === 'A') {
+      stack_string.push(data)
+    } else if (stack_string.length > 0) {
+      stack_string.pop();
+    } else {
+      stack_string.push(data);
+    }
+  }
+  return stack_string;
+}
+
+console.log(getMinString(string));
