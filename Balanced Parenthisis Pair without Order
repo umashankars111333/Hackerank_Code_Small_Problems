@@ -1,0 +1,23 @@
+const string = '{(}){[)(}]'
+
+const openingBracketPairs = {
+  '{': '}',
+  '(': ')',
+  '[': ']',
+};
+const closingBracketPairs = {
+  '}': '{',
+  ')': '(',
+  ']': '[',
+};
+
+const finalResult = {};
+for (let i = 0; i < string.length; i++) {
+  if (openingBracketPairs[string[i]]) {
+    finalResult[string[i]] = (finalResult[string[i]] || 0) + 1;
+  } else {
+    finalResult[closingBracketPairs[string[i]]] = (finalResult[closingBracketPairs[string[i]]] || 0) - 1;
+  }
+}
+
+console.log(finalResult);
