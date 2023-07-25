@@ -1,0 +1,17 @@
+function getInformation() {
+  return this.name + this.age
+}
+
+const obj1 = {
+  name: 'Umashhankar',
+  age: 20
+}
+
+Function.prototype.bindUma = function(instances) {
+  const originalFunction = this;
+  return function() {
+    return originalFunction.apply(instances)
+  }
+}
+
+console.log(getInformation.bindUma(obj1)());
