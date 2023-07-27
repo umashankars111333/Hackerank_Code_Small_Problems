@@ -1,0 +1,15 @@
+function getInformation(jobName, companyName) {
+  return this.name + this.age + jobName + companyName;
+}
+
+Function.prototype.myApply = function (instance, args) {
+  instance.fn = this;
+  return instance.fn(...args);
+};
+
+const obj1 = {
+  name: "uma",
+  age: 23,
+};
+console.log(getInformation.myApply(obj1, ["UI Developer", "Finastra"]));
+// console.log(getInformation.call(obj1));
